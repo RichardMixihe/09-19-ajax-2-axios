@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- 引入 bootstrap 样式表 -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 栅格系统 -->
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>图书管理</h1>
+      <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">添加</button>
+    </div>
+    <table class="table table-bordered table-striped table-dark table-hover text-center">
+      <thead>
+        <!-- 表头行 -->
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">书名</th>
+          <th scope="col">作者</th>
+          <th scope="col">出版社</th>
+          <th scope="col">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 表格中的每一行 -->
+        <tr>
+          <th scope="row">xxx</th>
+          <td>xxx</td>
+          <td>xxx</td>
+          <td>xxx</td>
+          <td>
+            <button type="button" class="btn btn-link btn-sm btn-delete">删除</button>
+            <button type="button" class="btn btn-link btn-sm btn-update">编辑</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- add Modal -->
+  <div class="modal fade" id="addModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">添加图书</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addForm" class="p-3">
+            <!-- 书名 -->
+            <div class="mb-3">
+              <label class="form-label">书名</label>
+              <input type="text" name="bookname" class="form-control" placeholder="请输入图书名称" name="bookname" />
+            </div>
+            <!-- 作者 -->
+            <div class="mb-3">
+              <label class="form-label">作者</label>
+              <input type="text" name="author" class="form-control" placeholder="请输入作者名字" name="author" />
+            </div>
+            <!-- 出版社 -->
+            <div class="mb-3">
+              <label class="form-label">出版社</label>
+              <input type="text" name="publisher" class="form-control" placeholder="请输入出版社名称" name="publisher" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="addBtn">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- edit Modal -->
+  <div class="modal fade" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">编辑图书</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editForm" class="p-3">
+            <input type="hidden" name="id" />
+            <!-- 书名 -->
+            <div class="mb-3">
+              <label class="form-label">书名</label>
+              <input type="text" name="bookname" class="form-control" placeholder="请输入图书名称" name="bookname" />
+            </div>
+            <!-- 作者 -->
+            <div class="mb-3">
+              <label class="form-label">作者</label>
+              <input type="text" name="author" class="form-control" placeholder="请输入作者名字" name="author" />
+            </div>
+            <!-- 出版社 -->
+            <div class="mb-3">
+              <label class="form-label">出版社</label>
+              <input type="text" name="publisher" class="form-control" placeholder="请输入出版社名称" name="publisher" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="editBtn">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 引入 lib 目录下的 bootstrap 和 axios -->
+  <script src="./lib/axios.js"></script>
+  <script src="./lib/form-value.js"></script>
+  <script src="./lib/bootstrap.min.js"></script>
+  <script src="./lib/index.js"></script>
+</body>
+
+</html>
