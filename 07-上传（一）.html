@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        头像：<input type="file" name="avatar">
+        <button>上传</button>
+    </form>
+    <script src="./axios.js"></script>
+    <script>
+        document.querySelector('button'). addEventListener('click',function (e) {
+            e.preventDefault();
+            let fd = new FormData(document.querySelector('form'))
+            axios.post('http://www.itcbc.com:3006/api/formdata',fd).then(({data:res})=>{
+                console.log(res);
+            })
+        })//绑定事件
+    </script>
+</body>
+</html>
