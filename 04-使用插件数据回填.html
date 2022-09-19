@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        用户名：<input type="text" name="username"><br />
+        手机号：<input type="text" name="phone" /><br />
+        性　别：<input type="radio" name="sex" value="nan">男
+        <input type="radio" name="sex" value="nv">女<br />
+        籍　贯：
+        <select name="address">
+          <option value="bj">北京</option>
+          <option value="sh">上海</option>
+          <option value="gz">广州</option>
+        </select><br />
+        <button id="tijiao">提交</button>
+      </form>
+      
+      <script src="./form-value.js"></script>
+      <script>
+        //设置表单项的默认值，叫做数据回填（数据回显）
+        // document.querySelector('input').value='abcd';//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        let data = {
+            // 键（name值） ： 值
+            username:'张三',
+            phone:'110',
+            sex:'nan',
+            address:'sh'
+        }
+        // 使用插件数据回填的语法，val（表单，数据）
+        let form = document.querySelector('form');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        val(form,data)
+      </script>
+</body>
+</html>
