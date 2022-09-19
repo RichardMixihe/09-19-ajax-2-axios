@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--回顾一个表单有几部分组成？（form标签，表单项（域），按钮） -->
+<!-- form的action属性，表示要把数据提交给哪里 -->
+<!-- <form action="https://www.baidu.com"> -->
+<!-- 不写就是把数据提交给当前页面 -->
+    <form action="">
+        单行文本框：
+        <input type="text" name="username"><br />
+        密码框：
+        <input type="password" name="pwd"><br />
+        单项按钮组：
+        <input type="radio" value="nan" name="sex">男
+        <input type="radio" value="nv" name="sex">女<br />
+        复选按钮组：
+        <input type="checkbox" name="hobby" value="cf">吃饭
+        <input type="checkbox" name="hobby" value="sj">睡觉
+        <input type="checkbox" name="hobby" value="ddd">打豆豆<Br />
+        下拉框：
+        <select name="address">
+          <option value="bj">北京</option>
+          <option value="sh">上海</option>
+          <option value="gz">广州</option>
+        </select><br />
+        文件选择框：
+        <input type="file"><br />
+        多行文本框：
+        <textarea name="intro" cols="30" rows="3"></textarea><br />
+        隐藏域：
+        <input type="hidden" name="id" value="100"><br />
+        <!-- h5新增：
+        <input type="color"> -->
+      
+        <!-- 表单中的按钮 -->
+        <!-- 1.提交按钮（点击之后会造成表单提交） -->
+        <button id="tijiao">提交按钮1</button>
+        <button type="submit">提交按钮2</button>
+        <input type="submit" value="提交按钮3">
+        <hr>
+        <!-- 2.普通按钮（点击之后不会有任何反应） -->
+        <button type="button">普通按钮1</button>
+        <input type="button" value="普通按钮2">
+        <hr>
+        <!-- 3.重置按钮(点击之后，会重置表单) -->
+        <button type="reset">重置按钮1</button>
+        <input type="reset" value="重置按钮2">
+      </form>
+    <script>
+        //回顾一个表单有几部分组成？（form标签，表单项（域），按钮）
+
+    </script>
+</body>
+</html>
