@@ -26,7 +26,7 @@ axios.get('/api/getbooks',{
         appkey:'laotang110022'
     }
 }).then(({data:res})=>{
-    console.log(res);
+    console.log(res.data);
 
 })
 // axios.post()            [专门发送POST类型的请求]
