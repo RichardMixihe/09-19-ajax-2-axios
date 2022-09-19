@@ -10,7 +10,9 @@
 <body>
     <input type="file" style="display: none;">
     <button>选择文件</button>
+    <script src="./axios.js"></script>
     <script>
+
         //点击按钮，能够选择文件
         document.querySelector('button'). addEventListener('click',function () {
             //用代码的方式，触发一下文件域的单击事件
@@ -19,7 +21,17 @@
 
         //当文件域改变的时候，上传
         document.querySelector('input'). addEventListener('change',function () {
-            console.log(1);
+            // 1.找到文件对象【描述文件的对象】
+            if (this.files.length>0) {
+                let fileObj = this.files[0];
+                let fd = new FormData();
+                fd.append('age',20);
+                fd.append('acatar',fileObj);
+                axios.post('http://www.itcbc.com:3006/api/formdata',fd).then(({data:res})=>{
+                console.log(res);
+            })
+            }            
+           
         })//绑定事件
     </script>
 </body>
