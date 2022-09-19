@@ -21,16 +21,53 @@ axios.defaults.baseURL = 'http://www.itcbc.com:3006';
 
 // })
 
-axios.get('/api/getbooks',{
-    params:{
-        appkey:'laotang110022'
-    }
-}).then(({data:res})=>{
-    console.log(res.data);
+// axios.get('/api/getbooks',{
+//     params:{
+//         appkey:'laotang110022'
+//     }
+// }).then(({data:res})=>{
+//     console.log(res.data);
 
-})
-// axios.post()            [专门发送POST类型的请求]
-// axios.put()             [专门发送PUT类型的请求]
-// axios.patch()           [专门发送PATCH类型的请求]
+// })
+// axios.post(url,data,请求的配置对象)            [专门发送POST类型的请求]
+// axios.put(url,data,请求的配置对象)             [专门发送PUT类型的请求]
+// axios.patch(url,data,请求的配置对象)           [专门发送PATCH类型的请求]
 
+// axios.post('/api/addbook',{
+//     bookname:'test',
+//     author:'test',
+//     publisher:'test'
+// }).then(({data:res}) =>{
+//     console.log(res);
+// })
 
+const appkey = 'Richard'
+// ------------------------获取图书并展示-------------------------------
+function renderBooks() {
+    axios.get('/api/getbooks',{
+        params:{
+            appkey
+        }
+    }).then(({data:res})=>{
+        console.log(res);
+        const arr = res.data.map(item => {
+            return `
+            <tr>
+          <th scope="row">${item.id}</th>
+          <td>${item.bookname}</td>
+          <td>${item.author}</td>
+          <td>${item.publisher}</td>
+          <td>
+            <button data-id=${item.id} type="button" class="btn btn-link btn-sm btn-delete">删除</button>
+            <button type="button" class="btn btn-link btn-sm btn-update">编辑</button>
+          </td>
+        </tr>`
+        })
+        document.querySelector('tbody').innerHTML= arr.join('');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+    
+    })
+}
+renderBooks();
+// ------------------------添加图书-------------------------------
+// ------------------------删除图书-------------------------------
+// ------------------------修改图书-------------------------------
