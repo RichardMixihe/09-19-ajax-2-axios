@@ -58,8 +58,8 @@ function renderBooks() {
           <td>${item.author}</td>
           <td>${item.publisher}</td>
           <td>
-            <button data-id=${item.id} type="button" class="btn btn-link btn-sm btn-delete">删除</button>
-            <button type="button" class="btn btn-link btn-sm btn-update">编辑</button>
+            <button data-id="${item.id}" type="button" class="btn btn-link btn-sm btn-delete">删除</button>
+            <button data-id="${item.id}" data-bookname = '${item.bookname}'  data-author='${item.author}'  data-publisher='${item.publisher}' type="button" class="btn btn-link btn-sm btn-update">编辑</button>
           </td>
         </tr>`
         })
@@ -93,6 +93,11 @@ document.querySelector('#addBtn'). addEventListener('click',function () {
     })
 
 })//绑定事件
+
+//初始化修改的弹窗
+const editModal = new bootstrap.Modal(document.querySelector('#editModal'))
+
+
 // ------------------------删除图书-------------------------------
 //事件未脱的方式注册事件
 document.querySelector('tbody'). addEventListener('click',function (e) {
@@ -112,7 +117,9 @@ document.querySelector('tbody'). addEventListener('click',function (e) {
     }
     //判断是否点击编辑
     if (e.target.classList.contains('btn-update')) {
-        
+        editModal.show()
+
+        val(document.querySelector('#editForm'),e.target.dataset)
     }
 
 })//绑定事件;//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
