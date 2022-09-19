@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <input type="file" style="display: none;">
+    <button>选择文件</button>
+    <script>
+        //点击按钮，能够选择文件
+        document.querySelector('button'). addEventListener('click',function () {
+            //用代码的方式，触发一下文件域的单击事件
+            document.querySelector('input').click();//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        })//绑定事件
+
+        //当文件域改变的时候，上传
+        document.querySelector('input'). addEventListener('change',function () {
+            console.log(1);
+        })//绑定事件
+    </script>
+</body>
+</html>
