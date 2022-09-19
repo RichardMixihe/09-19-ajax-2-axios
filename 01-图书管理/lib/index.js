@@ -41,7 +41,7 @@ axios.defaults.baseURL = 'http://www.itcbc.com:3006';
 //     console.log(res);
 // })
 
-const appkey = 'Richard'
+const appkey = 'Richard2'
 // ------------------------获取图书并展示-------------------------------
 function renderBooks() {
     axios.get('/api/getbooks',{
@@ -69,5 +69,56 @@ function renderBooks() {
 }
 renderBooks();
 // ------------------------添加图书-------------------------------
+// 1.实例化模态框
+const addModel = new bootstrap.Modal(document.querySelector('#addModal'));
+
+// 2.点击添加按钮，出现模态框
+document.querySelector('.btn-success'). addEventListener('click',function () {
+    addModel.show();
+})
+
+// 3.点击模态框中的确认按钮，获取表单各项值，ajax提交，完成添加
+document.querySelector('#addBtn'). addEventListener('click',function () {
+    //获取表单各项的值
+    // const data = val(表单)
+    // const data = val(document.querySelector('#addform'));
+    const data =val(document.querySelector('#addForm'))
+
+    data.appkey = appkey;//给对象加入appkey属性
+    // console.log(data);
+    axios.post('/api/addbook',data).then(({data:res})=>{
+        addModel.hide();
+        renderBooks();
+        document.querySelector('#addForm').reset();//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+    })
+
+})//绑定事件
 // ------------------------删除图书-------------------------------
+//事件未脱的方式注册事件
+document.querySelector('tbody'). addEventListener('click',function (e) {
+    //判断是否点击删除
+    if (e.target.classList.contains('btn-delete')) {
+        const id = e.target.dataset.id;
+        // console.log(id);
+        axios.delete('/api/delbook',{
+            params:{
+                id,
+                appkey
+            }
+        }).then(({data:res}) => {
+            renderBooks()
+        })
+
+    }
+    //判断是否点击编辑
+    if (e.target.classList.contains('btn-update')) {
+        
+    }
+
+})//绑定事件;//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+
+
+
+
+
 // ------------------------修改图书-------------------------------
