@@ -26,7 +26,7 @@
                 let fileObj = this.files[0];
                 let fd = new FormData();
                 fd.append('age',20);
-                fd.append('acatar',fileObj);
+                fd.append('avatar',fileObj);
                 axios.post('http://www.itcbc.com:3006/api/formdata',fd).then(({data:res})=>{
                 console.log(res);
             })
